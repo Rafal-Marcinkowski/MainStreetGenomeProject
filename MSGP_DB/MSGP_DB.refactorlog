@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="e713dbf7-7d9d-4180-acc1-e42881ab11b8" ChangeDateTime="03/13/2024 11:30:12">
+    <Property Name="ElementName" Value="[dbo].[Threads].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Threads]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f01d4bc5-0ba6-48fd-b678-8e99546d1fce" ChangeDateTime="03/13/2024 11:30:21">
+    <Property Name="ElementName" Value="[dbo].[Threads].[CompanyId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Threads]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CompanyID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="44687526-7e4e-4bea-b358-1f5a4a4fd908" ChangeDateTime="03/13/2024 11:30:29">
+    <Property Name="ElementName" Value="[dbo].[Companies].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Companies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="20f3ba1b-6148-4c43-aabf-e9fb6d33396a" ChangeDateTime="03/13/2024 11:40:50">
+    <Property Name="ElementName" Value="[dbo].[Threads].[Date]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Threads]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DateTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3fae13d7-708f-49c4-ba23-9d906efa3d2f" ChangeDateTime="03/13/2024 11:43:19">
+    <Property Name="ElementName" Value="[dbo].[Threads].[SubjectName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Threads]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ThreadName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f27886f-6099-436b-bdcc-f8bb564ec5dd" ChangeDateTime="03/13/2024 13:19:04">
+    <Property Name="ElementName" Value="[dbo].[Comments].[IPAddres]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Comments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IPAddress" />
+  </Operation>
+</Operations>

@@ -1,0 +1,8 @@
+﻿CREATE TABLE Comments (
+    ID INT PRIMARY KEY,
+    ThreadID INT FOREIGN KEY REFERENCES Threads(ID) NOT NULL,
+    CommentText NVARCHAR(250) NULL, 
+    [IPAddress] VARCHAR(15) NOT NULL, 
+    [DateTime] DATETIME NOT NULL, 
+    [Author] VARCHAR(25) NOT NULL
+)

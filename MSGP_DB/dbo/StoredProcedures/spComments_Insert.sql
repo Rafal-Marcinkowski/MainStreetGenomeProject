@@ -8,7 +8,7 @@ AS
 
 BEGIN
 
-INSERT INTO Comments
+INSERT INTO Comments(ThreadID, CommentText, IPAddress, DateTime, Author)
 VALUES(@ThreadID, @CommentText, @IPAddress, @DateTime, @Author);
 
 END

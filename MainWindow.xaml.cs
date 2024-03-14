@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using HtmlAgilityPack;
+using MainStreetGenomeProject.MVVM.ViewModels;
+using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,16 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MainStreetGenomeProject
+namespace MainStreetGenomeProject;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    private MainViewModel viewModel = new();
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        DataContext = viewModel;
     }
+
+    private async void Button_Click(object sender, RoutedEventArgs e)
+    {
+        string htmltext = await Library.DownloadDataFromForum.DownloadMainPage.DownloadHtmlAsync(1);
+        File.WriteAllText("C:\\Users\\rafal\\Desktop\\Pogromcy\\MainStreetGenomeProject\\GlownaStronaHtml", htmltext);
+        await Library.DownloadDataFromForum.DownloadMainPage.GetRelevantNodes(htmltext);
+    }
+
 }

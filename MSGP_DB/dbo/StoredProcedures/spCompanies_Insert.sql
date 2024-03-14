@@ -5,7 +5,7 @@ AS
 
 BEGIN
 
-INSERT INTO Companies
+INSERT INTO Companies(CompanyName, Ranking)
 VALUES(@CompanyName, @Ranking);
 
 END

@@ -3,13 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainStreetGenomeProject", "MainStreetGenomeProject.csproj", "{D3F9A7E6-8F47-4D72-BA42-470205007DFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainStreetGenomeProject", "MainStreetGenomeProject.csproj", "{D3F9A7E6-8F47-4D72-BA42-470205007DFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0CB0101-91F6-4504-816B-286368B9856F} = {E0CB0101-91F6-4504-816B-286368B9856F}
+	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MSGP_DB", "MSGP_DB\MSGP_DB.sqlproj", "{D44A599F-2C96-4D0B-8173-E4B18C193EBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "..\Library\Library.csproj", "{1DEF9C84-C37D-4837-8DA1-8BB7AF2E9323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "..\Library\Library.csproj", "{1DEF9C84-C37D-4837-8DA1-8BB7AF2E9323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{E0CB0101-91F6-4504-816B-286368B9856F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{E0CB0101-91F6-4504-816B-286368B9856F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F712035-FB82-4361-976E-56C516C85570}"
 	ProjectSection(SolutionItems) = preProject

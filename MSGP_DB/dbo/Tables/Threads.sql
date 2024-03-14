@@ -6,5 +6,6 @@
     [DateTime] DATETIME NOT NULL, 
     [CommentsAmount] TINYINT NOT NULL, 
     [IPAddress] VARCHAR(15) NOT NULL, 
-    [Author] VARCHAR(25) NOT NULL
+    [Author] VARCHAR(25) NOT NULL, 
+    [Hyperlink] NVARCHAR(100) NOT NULL
 )

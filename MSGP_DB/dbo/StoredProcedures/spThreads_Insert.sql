@@ -4,12 +4,13 @@
 @DateTime datetime,
 @CommentsAmount tinyint,
 @IPAddress varchar(15),
-@Author varchar(25)
+@Author varchar(25),
+@Hyperlink nvarchar(100)
 AS
 
 BEGIN
 
-INSERT INTO Threads
-VALUES(@CompanyID, @ThreadName, @DateTime, @CommentsAmount, @IPAddress, @Author);
+INSERT INTO Threads(CompanyID, ThreadName, DateTime, CommentsAmount, IPAddress, Author, Hyperlink)
+VALUES(@CompanyID, @ThreadName, @DateTime, @CommentsAmount, @IPAddress, @Author, @Hyperlink);
 
 END

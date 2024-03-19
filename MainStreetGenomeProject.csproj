@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
+    <ProjectReference Include="..\ValidationComponent\ValidationComponent.csproj" />
     <ProjectReference Include="MSGP_DB\MSGP_DB.sqlproj" />
   </ItemGroup>
 

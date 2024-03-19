@@ -22,5 +22,4 @@ namespace MainStreetGenomeProject
                 .Build();
         }
     }
-
 }

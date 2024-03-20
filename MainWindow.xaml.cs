@@ -1,5 +1,4 @@
-﻿using Library.DownloadDataFromForum;
-using MainStreetGenomeProject.MVVM.ViewModels;
+﻿using MainStreetGenomeProject.MVVM.ViewModels;
 using System.IO;
 using System.Windows;
 

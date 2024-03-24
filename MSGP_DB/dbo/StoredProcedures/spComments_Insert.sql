@@ -3,7 +3,7 @@
 @CommentText nvarchar(250),
 @IPAddress varchar(15),
 @DateTime datetime,
-@Author varchar(25)
+@Author nvarchar(25)
 AS
 
 BEGIN

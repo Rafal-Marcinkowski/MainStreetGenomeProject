@@ -4,5 +4,5 @@
     CommentText NVARCHAR(250) NULL, 
     [IPAddress] VARCHAR(15) NOT NULL, 
     [DateTime] DATETIME NOT NULL, 
-    [Author] VARCHAR(25) NOT NULL
+    [Author] NVARCHAR(25) NOT NULL
 )

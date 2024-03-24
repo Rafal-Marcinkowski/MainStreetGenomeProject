@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCompanies_Insert]
-@CompanyName nvarchar(50),
+@CompanyName nvarchar(30),
 @Ranking smallint
 AS
 

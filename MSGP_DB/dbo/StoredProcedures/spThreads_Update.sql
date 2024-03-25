@@ -5,7 +5,7 @@
 @DateTime datetime,
 @CommentsAmount tinyint,
 @IPAddress varchar(15),
-@Author varchar(25),
+@Author nvarchar(25),
 @Hyperlink nvarchar(100)
 AS
 

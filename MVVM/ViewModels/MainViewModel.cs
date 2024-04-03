@@ -51,9 +51,12 @@ public class MainViewModel : ObservableObject
         foreach (var thread in errorThreads)
         {
             var comments = await commentData.GetAllCommentsForThreadAsync(thread.ID);
-            foreach (var comment in comments)
+            if (comments != null)
             {
-                await commentData.DeleteCommentAsync(comment.ID);
+                foreach (var comment in comments)
+                {
+                    await commentData.DeleteCommentAsync(comment.ID);
+                }
             }
             await threadData.DeleteThreadAsync(thread.ID);
         }

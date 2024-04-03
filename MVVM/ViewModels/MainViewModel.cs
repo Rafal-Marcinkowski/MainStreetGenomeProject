@@ -6,11 +6,13 @@ using System.IO;
 using HtmlAgilityPack;
 using DataAccess.Data;
 using DataAccess.DBAccess;
+
 using GalaSoft.MvvmLight;
 using System.Windows;
 using Forge.OpenAI.Interfaces.Services;
 using Forge.OpenAI.Models.ChatCompletions;
 using Forge.OpenAI.Models.Common;
+using DataAccess.Models;
 
 namespace MainStreetGenomeProject.MVVM.ViewModels;
 public class MainViewModel : ObservableObject
@@ -36,40 +38,50 @@ public class MainViewModel : ObservableObject
             //    await Task.Delay(15000);
             //}
             //k();
-            //await Chat.ChatWithNonStreamingModeAsync(openAI);/
-            //IleSlowWKomentarzach();
-            ilekomentarzyzdzisiajiwatkow();
+            //await Chat.ChatWithNonStreamingModeAsync(openAI);
+            Ile();
+            //ilekomentarzyzdzisiajiwatkow();
+            //await DeleteInvalidThreadsAndComments();
         });
+
+    private async Task DeleteInvalidThreadsAndComments()
+    {
+        var threads = await threadData.GetAllThreadsAsync();
+        var errorThreads = threads.Where(q => q.IPAddress == "1.1.1.1");
+        foreach (var thread in errorThreads)
+        {
+            var comments = await commentData.GetAllCommentsForThreadAsync(thread.ID);
+            foreach (var comment in comments)
+            {
+                await commentData.DeleteCommentAsync(comment.ID);
+            }
+            await threadData.DeleteThreadAsync(thread.ID);
+        }
+    }
 
     private async void ilekomentarzyzdzisiajiwatkow()
     {
         var threads = await threadData.GetAllThreadsAsync();
-        threads=threads.Where(q=>q.DateTime == DateTime.Today);
+        threads = threads.Where(q => q.DateTime == DateTime.Today);
         var comments = await commentData.GetAllCommentsAsync();
         comments = comments.Where(q => q.DateTime == DateTime.Today);
         MessageBox.Show($"Threads from today: {threads.Count()}, comments from today: {comments.Count()}");
     }
 
-    private async void IleSlowWKomentarzach()
+    private async void Ile()
     {
-        var comments = await commentData.GetAllCommentsAsync();
-        int nr = 0;
-        foreach (var comment in comments)
-        {
-            var nrOfWords = comment.CommentText.Split(' ');
-            nr += nrOfWords.Count();
-        }
-        MessageBox.Show(comments.Count().ToString());
-        MessageBox.Show(nr.ToString());
+        var threads = await threadData.GetAllThreadsAsync();
+        MessageBox.Show(threads.Max(q => q.Author.Length).ToString());
     }
 
     private async void k()
     {
+        var companies = await companyData.GetAllCompaniesAsync();
+        MessageBox.Show($"distinct companies: {companies.DistinctBy(q => q.CompanyName).Count().ToString()}");
         var threads = await threadData.GetAllThreadsAsync();
-        MessageBox.Show(threads.DistinctBy(q => q.Hyperlink).Count().ToString());
+        MessageBox.Show($"distinct threads: {threads.DistinctBy(q => q.ThreadName).Count().ToString()}");
         var comments = await commentData.GetAllCommentsAsync();
         MessageBox.Show($"distinct comments: {comments.DistinctBy(q => q.CommentText, StringComparer.OrdinalIgnoreCase).Count().ToString()}");
     }
-
 }
 

@@ -7,5 +7,5 @@
     [CommentsAmount] TINYINT NOT NULL, 
     [IPAddress] VARCHAR(15) NULL, 
     [Author] NVARCHAR(25) NOT NULL, 
-    [Hyperlink] NVARCHAR(100) NOT NULL
+    [Hyperlink] NVARCHAR(110) NOT NULL
 )

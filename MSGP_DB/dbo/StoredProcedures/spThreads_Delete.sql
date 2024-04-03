@@ -2,6 +2,6 @@
 	@ID int
 AS
 BEGIN
-    DELETE FROM Companies
+    DELETE FROM Threads
 	WHERE ID=@ID;
 END

@@ -39,10 +39,17 @@ public class MainViewModel : ObservableObject
             //}
             //k();
             //await Chat.ChatWithNonStreamingModeAsync(openAI);
-            Ile();
-            //ilekomentarzyzdzisiajiwatkow();
+            //Ile();
+            await GetMostRetardedInvestor();
             //await DeleteInvalidThreadsAndComments();
         });
+
+    private async Task GetMostRetardedInvestor()
+    {
+        var comments = await commentData.GetAllCommentsAsync();
+        var groups = comments.GroupBy(x => x.IPAddress).OrderByDescending(q=>q.Count());
+        MessageBox.Show(groups.First().Key);
+    }
 
     private async Task DeleteInvalidThreadsAndComments()
     {

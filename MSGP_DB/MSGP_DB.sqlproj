@@ -85,7 +85,4 @@
   <ItemGroup>
     <RefactorLog Include="MSGP_DB.refactorlog" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="MSGP_DB.publish.xml" />
-  </ItemGroup>
 </Project>

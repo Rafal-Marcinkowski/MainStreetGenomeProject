@@ -13,6 +13,7 @@ using Forge.OpenAI.Interfaces.Services;
 using Forge.OpenAI.Models.ChatCompletions;
 using Forge.OpenAI.Models.Common;
 using DataAccess.Models;
+using ValidationComponent.DataMaintenance;
 
 namespace MainStreetGenomeProject.MVVM.ViewModels;
 public class MainViewModel : ObservableObject
@@ -29,25 +30,21 @@ public class MainViewModel : ObservableObject
     public ICommand StartCommand =>
         new RelayCommand(async () =>
         {
-            //while (true)
-            //{
-            //    string htmltext = await DownloadPageSource.DownloadHtmlAsync(1);
-            //    File.WriteAllText("C:\\Users\\rafal\\Desktop\\Pogromcy\\MainStreetGenomeProject\\GlownaStronaHtml", htmltext);
-            //    HtmlNodeCollection htmlNodes = await GetRelevantNodes.GetMainPageNodes(htmltext);
-            //    await new ProcessHtmlNodes(companyData, threadData, commentData).Start(htmlNodes);
-            //    await Task.Delay(15000);
-            //}
-            //k();
-            //await Chat.ChatWithNonStreamingModeAsync(openAI);
-            //Ile();
-            await GetMostRetardedInvestor();
-            //await DeleteInvalidThreadsAndComments();
+            await new ClearDatabase(companyData, threadData, commentData).DeleteObsoleteThreadsAndComments();
+            while (true)
+            {
+                string htmltext = await DownloadPageSource.DownloadHtmlAsync(1);
+                File.WriteAllText("C:\\Users\\rafal\\Desktop\\Pogromcy\\MainStreetGenomeProject\\GlownaStronaHtml", htmltext);
+                HtmlNodeCollection htmlNodes = await GetRelevantNodes.GetMainPageNodes(htmltext);
+                await new ProcessHtmlNodes(companyData, threadData, commentData).Start(htmlNodes);
+                await Task.Delay(15000);
+            }
         });
 
     private async Task GetMostRetardedInvestor()
     {
         var comments = await commentData.GetAllCommentsAsync();
-        var groups = comments.GroupBy(x => x.IPAddress).OrderByDescending(q=>q.Count());
+        var groups = comments.GroupBy(x => x.IPAddress).OrderByDescending(q => q.Count());
         MessageBox.Show(groups.First().Key);
     }
 

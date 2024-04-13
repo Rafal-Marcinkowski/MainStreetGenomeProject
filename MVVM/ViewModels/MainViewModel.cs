@@ -1,18 +1,13 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Library.GetDataFromHtml;
-using Library.OpenAI;
 using System.Windows.Input;
 using System.IO;
 using HtmlAgilityPack;
 using DataAccess.Data;
 using DataAccess.DBAccess;
-
 using GalaSoft.MvvmLight;
 using System.Windows;
 using Forge.OpenAI.Interfaces.Services;
-using Forge.OpenAI.Models.ChatCompletions;
-using Forge.OpenAI.Models.Common;
-using DataAccess.Models;
 using ValidationComponent.DataMaintenance;
 
 namespace MainStreetGenomeProject.MVVM.ViewModels;

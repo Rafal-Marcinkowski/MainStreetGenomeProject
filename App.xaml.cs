@@ -1,7 +1,12 @@
-﻿using Forge.OpenAI;
+﻿using DataAccess.Data;
+using DataAccess.DBAccess;
+using Forge.OpenAI;
+using MainStreetGenomeProject.MVVM;
+using MainStreetGenomeProject.MVVM.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using ValidationComponent.DataMaintenance;
 
 namespace MainStreetGenomeProject;
 
@@ -33,5 +38,11 @@ public partial class App : Application
         {
             options.AuthenticationInfo = Configuration["ApiKey"]!;
         });
+        services.AddSingleton(provider => Configuration);
+        services.AddSingleton<ISQLDataAccess, SQLDataAccess>();
+        services.AddSingleton<ICompanyData, CompanyData>();
+        services.AddSingleton<IThreadData, ThreadData>();
+        services.AddSingleton<ICommentData, CommentData>();
+        services.AddSingleton<ViewModelManager>();
     }
 }

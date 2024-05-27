@@ -8,9 +8,6 @@ using System.Windows;
 
 namespace MainStreetGenomeProject;
 
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
 public partial class App : Application
 {
     public static IServiceProvider ServiceProvider { get; private set; }
@@ -30,17 +27,17 @@ public partial class App : Application
         ServiceProvider = serviceCollection.BuildServiceProvider();
     }
 
-    public void ConfigureServices(IServiceCollection services)
+    private void ConfigureServices(IServiceCollection services)
     {
         services.AddForgeOpenAI(options =>
         {
             options.AuthenticationInfo = Configuration["ApiKey"]!;
         });
         services.AddSingleton(Configuration);
-        services.AddScoped<ISQLDataAccess, SQLDataAccess>();
-        services.AddScoped<ICompanyData, CompanyData>();
-        services.AddScoped<IThreadData, ThreadData>();
-        services.AddScoped<ICommentData, CommentData>();
+        services.AddSingleton<ISQLDataAccess, SQLDataAccess>();
+        services.AddSingleton<ICompanyData, CompanyData>();
+        services.AddSingleton<IThreadData, ThreadData>();
+        services.AddSingleton<ICommentData, CommentData>();
         services.AddSingleton<ViewModelManager>();
     }
 }

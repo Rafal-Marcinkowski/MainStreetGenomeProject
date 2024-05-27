@@ -7,6 +7,7 @@ namespace MainStreetGenomeProject.MVVM;
 internal class ViewModelManager
 {
     private readonly IServiceProvider serviceProvider;
+
     public ViewModelManager(IServiceProvider serviceProvider)
     {
         this.serviceProvider = serviceProvider;

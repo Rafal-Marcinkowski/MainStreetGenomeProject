@@ -1,11 +1,8 @@
-﻿using System.Windows;
-using MainStreetGenomeProject.MVVM;
+﻿using MainStreetGenomeProject.MVVM;
+using System.Windows;
 
 namespace MainStreetGenomeProject;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()

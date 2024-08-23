@@ -33,7 +33,6 @@ public partial class App : Application
         {
             options.AuthenticationInfo = Configuration["ApiKey"]!;
         });
-        services.AddSingleton(Configuration);
         services.AddSingleton<ISQLDataAccess, SQLDataAccess>();
         services.AddSingleton<ICompanyData, CompanyData>();
         services.AddSingleton<IThreadData, ThreadData>();
